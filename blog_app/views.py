@@ -1,7 +1,8 @@
-from rest_framework import status
+from rest_framework import status, generics, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import UserRegisterSerializer
+from .serializers import UserRegisterSerializer, PostSerializer
+from .models import Post
 from rest_framework_simplejwt.tokens import RefreshToken
 
 class UserRegisterView(APIView):
@@ -16,3 +17,13 @@ class UserRegisterView(APIView):
                 "access": str(refresh.access_token),
             }, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class PostListCreateView(generics.ListCreateAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAdminUser] # Only admins can access
+
+class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAdminUser] # Only admins can access
