@@ -1,0 +1,70 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+env/
+venv/
+
+# Django specific files
+db.sqlite3
+*.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+
+# Django migrations
+**/migrations/**
+
+# Secrets
+.env
+.env.*
+
+# Django cache files
+**/__pycache__/
+
+# Static files
+/staticfiles/
+/static/
+
+# Media files
+/media/
+
+# Local development files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.DS_Store
+
+# Test reports
+htmlcov/
+coverage.xml
+.tox/
+.nox/
+.pytest_cache/
+*.cover
+.hypothesis/
+
+# Django REST Framework cache
+drf-yasg/
+drf-yasg-cache/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# macOS system files
+.DS_Store
+*.DS_Store
+
+# JetBrains IDE files
+.idea/
+
+# Docker
+docker-compose.yml
+Dockerfile
+__pycache__/
